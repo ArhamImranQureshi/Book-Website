@@ -15,25 +15,30 @@ a:hover{color:var(--gold2);text-decoration:underline}
 .narrow{max-width:720px;margin:0 auto;padding:0 20px}
 
 
+
 /* Section Setup */
 .quote-section {
   position: relative;
   overflow: hidden;
   padding: 100px 20px;
   text-align: center;
+  height: 70vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
 }
 
-/* Quote Bara Size */
+/* Quote Text ko Bara Karna (Aap apni marzi se px mazeed barha sakte hain) */
 .quote-section .quote {
-  font-size: 38px !important;
+  font-size: 38px !important; /* Pehle 24px tha, ab bara kar diya hai */
   font-weight: 500;
   color: #fff;
   max-width: 800px;
   margin: 0 auto;
 }
 
-/* Container */
-.quote-bg-container {
+/* Background Images Container */
+.quote-bg-images {
   position: absolute;
   top: 0;
   left: 0;
@@ -43,17 +48,37 @@ a:hover{color:var(--gold2);text-decoration:underline}
   z-index: 1;
 }
 
-/* Dynamic Floating Image Styling */
-.dynamic-fade-img {
+/* Individual Fading Image Styling */
+.bg-img {
   position: absolute;
-  width: 160px;
-  height: 110px;
+  width: 200px;  /* Image ki width */
+  height: 300px; /* Image ki height */
   background-size: cover;
   background-position: center;
   border-radius: 8px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   opacity: 0;
-  transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
+  /* Total 16 seconds ka loop (4 images hain, har ek 4s ke delay par chalegi) */
+  animation: fadeLoop 16s infinite ease-in-out;
+}
+
+/* Fade-In & Fade-Out Keyframes Animation */
+@keyframes fadeLoop {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  15% {
+    opacity: 0.8; /* Image visible hogi */
+    transform: scale(1);
+  }
+  30% {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 
