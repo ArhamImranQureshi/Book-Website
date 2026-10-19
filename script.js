@@ -99,3 +99,99 @@ if(lb){
 }
 })();
 
+document.addEventListener('DOMContentLoaded', () => {
+  // 1. Reading Progress Bar
+  const progressBar = document.createElement('div');
+  progressBar.className = 'scroll-progress-bar';
+  document.body.appendChild(progressBar);
+
+  window.addEventListener('scroll', () => {
+    const totalHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const progress = (window.scrollY / totalHeight) * 100;
+    progressBar.style.width = `${progress}%`;
+  }, { passive: true });
+
+  // 2. Interactive 3D Book Cover Tilt (Desktop Only)
+  const cover = document.querySelector('.book-cover');
+  const container = document.querySelector('.book-cover-container');
+
+  if (cover && container && window.matchMedia('(min-width: 768px)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    container.addEventListener('mousemove', (e) => {
+      const rect = container.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * -10;
+      const rotateY = ((x - centerX) / centerX) * 10;
+
+      cover.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+    });
+
+    container.addEventListener('mouseleave', () => {
+      cover.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+    });
+  }
+
+  // 3. Scroll-Triggered Fade-In Animations (IntersectionObserver)
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.15
+  };
+
+  const observer = new IntersectionObserver((entries, observerInstance) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observerInstance.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  const animateElements = document.querySelectorAll('.timeline-item, .reading-container p, .gallery-item');
+  animateElements.forEach(el => {
+    observer.observe(el);
+  });
+
+  // 4. Accessible Archival Gallery Lightbox
+  const galleryItems = document.querySelectorAll('.gallery-item');
+  if (galleryItems.length > 0) {
+    const modal = document.createElement('div');
+    modal.className = 'lightbox-modal';
+    modal.innerHTML = `
+      <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
+      <img class="lightbox-content" src="" alt="">
+    `;
+    document.body.appendChild(modal);
+
+    const modalImg = modal.querySelector('.lightbox-content');
+    const closeBtn = modal.querySelector('.lightbox-close');
+
+    galleryItems.forEach(item => {
+      const img = item.querySelector('img');
+      if (img) {
+        img.style.cursor = 'pointer';
+        img.addEventListener('click', () => {
+          modalImg.src = img.src;
+          modalImg.alt = img.alt || 'Archival historical photograph';
+          modal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        });
+      }
+    });
+
+    const closeModal = () => {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    };
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+    });
+  }
+});
