@@ -224,3 +224,56 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.getElementById("random-bg-container");
+  if (!container) return;
+
+  // Aap yahan apni jitni marzi images ke paths add kar sakte hain
+  const imagesList = [
+    "img/cover.jpg",
+    "img/cover.jpg",
+    "img/cover.jpg",
+    "img/cover.jpg",
+    "img/cover.jpg"
+  ];
+
+  function showRandomImage() {
+    // 1. Random Image select karein
+    const randomImgSrc = imagesList[Math.floor(Math.random() * imagesList.length)];
+
+    // 2. Image element create karein
+    const imgDiv = document.createElement("div");
+    imgDiv.classList.add("dynamic-fade-img");
+    imgDiv.style.backgroundImage = `url('${randomImgSrc}')`;
+
+    // 3. Random Position generate karein (Safe area: 5% se 75% tak taakay text ke upar na aaye)
+    const randomTop = Math.floor(Math.random() * 70) + 5; 
+    const randomLeft = Math.floor(Math.random() * 75) + 10;
+
+    imgDiv.style.top = `${randomTop}%`;
+    imgDiv.style.left = `${randomLeft}%`;
+
+    // 4. Container mein add karein
+    container.appendChild(imgDiv);
+
+    // 5. Fade In (Thore delay ke sath taakay transition trigger ho)
+    setTimeout(() => {
+      imgDiv.style.opacity = "0.75"; // Transparency (0 se 1 ke beech)
+      imgDiv.style.transform = "scale(1.05)";
+    }, 100);
+
+    // 6. Kuch seconds baad Fade Out karke DOM se delete kar dein
+    setTimeout(() => {
+      imgDiv.style.opacity = "0";
+      imgDiv.style.transform = "scale(0.95)";
+      
+      setTimeout(() => {
+        imgDiv.remove();
+      }, 1500); // Transition duration ke barabar time
+    }, 4000); // Image kitni dair screen par rahegi (4 seconds)
+  }
+
+  // Har 2.5 seconds ke baad ek new random image spawn hogi
+  setInterval(showRandomImage, 2500);
+});

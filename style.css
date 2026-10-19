@@ -15,6 +15,48 @@ a:hover{color:var(--gold2);text-decoration:underline}
 .narrow{max-width:720px;margin:0 auto;padding:0 20px}
 
 
+/* Section Setup */
+.quote-section {
+  position: relative;
+  overflow: hidden;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+/* Quote Bara Size */
+.quote-section .quote {
+  font-size: 38px !important;
+  font-weight: 500;
+  color: #fff;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Container */
+.quote-bg-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Dynamic Floating Image Styling */
+.dynamic-fade-img {
+  position: absolute;
+  width: 160px;
+  height: 110px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
+}
+
+
 /* Main Section Setup */
 .journey-section {
   position: relative;
