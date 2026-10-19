@@ -1,0 +1,6 @@
+﻿Saving Otto Brune - website sample
+
+1. Unzip this folder.
+2. Double-click index.html to open the site in your browser (Chrome, Edge, Firefox).
+
+Tip: stay connected to the internet so the fonts load as designed. Best viewed on desktop or phone.
