@@ -195,3 +195,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const stats = document.querySelectorAll(".stat");
+
+  // Create custom cursor element dynamically
+  const cursor = document.createElement("div");
+  cursor.classList.add("book-cursor");
+  document.body.appendChild(cursor);
+
+  stats.forEach((stat) => {
+    const imgSrc = stat.getAttribute("data-cursor");
+
+    stat.addEventListener("mouseenter", () => {
+      cursor.style.backgroundImage = `url('${imgSrc}')`;
+      cursor.style.opacity = "1";
+    });
+
+    stat.addEventListener("mouseleave", () => {
+      cursor.style.opacity = "0";
+    });
+
+    stat.addEventListener("mousemove", (e) => {
+      cursor.style.left = `${e.clientX}px`;
+      cursor.style.top = `${e.clientY}px`;
+    });
+  });
+});
