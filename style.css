@@ -14,26 +14,255 @@ a:hover{color:var(--gold2);text-decoration:underline}
 .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
 .narrow{max-width:720px;margin:0 auto;padding:0 20px}
 
-.herobaner{
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 0px;
+
+/* --- Transparent Header Overlaying the Banner --- */
+/* --- New Cinematic Header (Transparent & Sticky) --- */
+header.cinematic-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: transparent; /* Shuru mein bilkul transparent */
+  z-index: 10000;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 18px 0;
 }
-.hero-wrapper{
+
+/* Scroll hone par sticky state with background #1A1912 */
+header.cinematic-header.scrolled {
+  position: fixed;
+  background-color: #1A1912 !important;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.7);
+  border-bottom: none;
+  padding: 12px 0;
+}
+
+/* Header inner layout adjustments agar zaroorat ho */
+header.cinematic-header .wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+
+/* --- Cinematic Editorial Hero (Bottom Aligned) --- */
+.herobaner.cinematic-editorial-hero {
+  position: relative;
+  width: 100%;
+  min-height: 90vh;
+  min-height: 90svh;
+  display: flex;
+  align-items: flex-end; /* Saari chezein bottom par laane ke liye */
+  justify-content: center;
+  overflow: hidden;
+  background-color: #050508;
+  padding:0px;
+}
+
+/* Background Video Styling */
+.editorial-bg-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  filter: brightness(0.9) contrast(1.1);
+}
+
+/* Ground atmospheric haze & vignette overlay */
+.ground-haze-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center 45%, rgba(5,5,8,0.1) 0%, rgba(5,5,8,0.8) 80%),
+              linear-gradient(to top, rgba(5,5,8,0.55) 0%, transparent 50%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Ember canvas layering */
+.herobaner #embers {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* Editorial Side Accents Position */
+.editorial-side-left {
+  position: absolute;
+  left: 40px;
+  bottom: 80px;
+  z-index: 5;
+  writing-mode: vertical-lr;
+  transform: rotate(180deg);
+  pointer-events: none;
+}
+
+.vertical-label {
+  font-family: Cinzel, serif;
+  font-size: 11px;
+  letter-spacing: 0.35em;
+  color: var(--muted);
+  opacity: 0.7;
+}
+
+.editorial-side-right {
+  position: absolute;
+  right: 40px;
+  bottom: 80px;
+  z-index: 5;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 12px;
+  pointer-events: none;
 }
-.ln1{
-  font-size: 100px !important;
-  text-align: center !important;
+
+.scroll-cue {
+  font-family: Cinzel, serif;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: var(--muted);
+  writing-mode: vertical-lr;
+  opacity: 0.7;
 }
-.plane{
-  background-color: #6b633f;
-  height: 100px ;
+
+.scroll-line {
+  width: 1px;
+  height: 50px;
+  background: linear-gradient(to bottom, var(--muted), transparent);
+  opacity: 0.4;
 }
+
+/* Wrapper & Bottom Layout Fix */
+.hero-wrap-editorial {
+  position: relative;
+  z-index: 6;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 0vh;
+}
+
+.hero-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  height: 75vh; /* Soldier aur content ko bottom area mein contain karne ke liye */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: center;
+}
+
+/* Grandfather Character Cutout - Bottom Anchored */
+.grandfather-img {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  max-height: 72vh;
+  width: auto;
+  object-fit: contain;
+  z-index: 4;
+  pointer-events: none;
+  filter: drop-shadow(0 25px 50px rgba(0,0,0,0.85));
+  opacity: 0;
+  animation: soldierCinematicEntrance 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes soldierCinematicEntrance {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(25px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* Narrative & Title Composition Container */
+.hero-narrative-container {
+  position: relative;
+  z-index: 7;
+  max-width: 1090px;
+  margin: 0 auto;
+  padding: 0px;
+  margin-bottom: 1vh;
+}
+
+.hero-eyebrow {
+  font-family: Cinzel, serif;
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  color: #dfd3c3;
+  margin-bottom: 10px;
+  opacity: 0.9;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+}
+
+.cinematic-title {
+  margin: 0px;
+  font-size: 100px;
+  line-height: 100px;
+  text-shadow: 0 6px 25px rgba(0,0,0,0.9), 0 2px 8px rgba(0,0,0,0.85);
+}
+
+.hero-subtext {
+  font-family: serif;
+  font-style: italic;
+  font-size: 18px;
+  color: #e6ded6;
+  margin-bottom: 18px;
+  letter-spacing: 0.03em;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.9);
+}
+
+.hero-cta-group {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Reduced Motion Compliance */
+@media (prefers-reduced-motion: reduce) {
+  .grandfather-img {
+    animation: none !important;
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 900px) {
+  .editorial-side-left,
+  .editorial-side-right {
+    display: none;
+  }
+  .grandfather-img {
+    max-height: 60vh;
+  }
+  .cinematic-title {
+    font-size: 2.2rem !important;
+  }
+}
+
+
+
 /* Section Setup */
 .quote-section {
   position: relative;

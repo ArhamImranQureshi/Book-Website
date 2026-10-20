@@ -325,3 +325,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const cinematicHeader = document.querySelector("header.cinematic-header");
+  if (!cinematicHeader) return;
+  
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 40) {
+      cinematicHeader.classList.add("scrolled");
+    } else {
+      cinematicHeader.classList.remove("scrolled");
+    }
+  });
+});

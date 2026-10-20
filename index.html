@@ -30,20 +30,21 @@
     </div>
     <div id="bar"></div>
     <button id="top" aria-label="Back to top">&uarr;</button>
-    <header class="site">
-      <div class="wrap">
-        <a class="brand" href="index.html" style="text-decoration: none"
-          >Saving Otto Brune<small>Memoirs of a US Army Medic</small></a
-        >
-        <nav>
-          <a href="index.html" class="on">Home</a
-          ><a href="blog.html">The Blog</a><a href="timeline.html">Timeline</a
-          ><a href="gallery.html">Gallery</a><a href="about.html">About</a>
-        </nav>
-      </div>
-    </header>
-    <div class="ribbon">Website sample &middot; Concept preview</div>
-    <section class="hero">
+    <header class="cinematic-header">
+  <div class="wrap">
+    <a class="brand" href="index.html" style="text-decoration: none">
+      Saving Otto Brune<small>Memoirs of a US Army Medic</small>
+    </a>
+    <nav>
+      <a href="index.html" class="on">Home</a>
+      <a href="blog.html">The Blog</a>
+      <a href="timeline.html">Timeline</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
+</header>
+    <!-- <section class="hero">
       <canvas id="embers"></canvas>
       <div class="wrap">
         <div>
@@ -91,21 +92,59 @@
         </div>
       </div>
       <div class="scroll-hint"></div>
-    </section>
+    </section> -->
 
-    <section class="herobaner">
-      <canvas id="embers"></canvas>
-      <div class="plane"></div>
-      <div class="wrap">
-        <div class="hero-wrapper">
-            <img src="./img/grandfather.png" style=""/>
-          <h1 class="shine">
-            <span class="ln1"><span style="--d: 1.4s">Saving</span></span
-            ><span class="ln1"><span style="--d: 1.6s">Otto Brune</span></span>
-          </h1>
+<section class="herobaner cinematic-editorial-hero">
+  <canvas id="embers"></canvas>
+  
+  <!-- Background Video -->
+  <video class="editorial-bg-video" autoplay loop muted playsinline>
+    <source src="./img/herovideo.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Dark Vignette / Contrast Overlay (Video ko dark rakhne ke liye) -->
+  <div class="ground-haze-overlay"></div>
+
+  <!-- Editorial Negative Space Accents -->
+  <div class="editorial-side-left">
+    <span class="vertical-label">A MEDIC'S MEMOIR</span>
+  </div>
+  <div class="editorial-side-right">
+    <span class="scroll-cue">EXPLORE THE STORY</span>
+    <div class="scroll-line"></div>
+  </div>
+
+  <div class="wrap hero-wrap-editorial">
+    <div class="hero-wrapper">
+      
+      <!-- Soldier Cutout (Anchored & Integrated) -->
+      <img src="./img/grandfather.png" alt="Sgt. Edward G. Lindberg" class="grandfather-img" />
+      
+      <!-- Prominent Narrative & Title Composition -->
+      <div class="hero-narrative-container">
+        <p class="hero-eyebrow fx" style="--d: 1.0s;">THE STORY OF A SOLDIER, A MEDIC &amp; HIS FAITH</p>
+        
+        <h1 class="shine cinematic-title">
+          <span class="ln1"><span style="--d: 1.2s;">Saving</span></span>
+          <span class="ln1"><span style="--d: 1.4s;">Otto Brune</span></span>
+        </h1>
+        
+        <p class="hero-subtext fx" style="--d: 1.6s;">
+          In a war built to destroy, he chose to save.
+        </p>
+
+        <div class="hero-cta-group fx" style="--d: 1.8s;">
+          <a class="btn" href="prologue.html">Start Reading</a>
+          <a class="btn ghost" href="blog.html">Browse the Blog</a>
         </div>
       </div>
-    </section>
+
+    </div>
+  </div>
+</section>
+
+
 
     <div class="ticker">
       <div>
