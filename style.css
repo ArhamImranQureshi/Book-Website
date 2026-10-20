@@ -16,6 +16,19 @@ a:hover{color:var(--gold2);text-decoration:underline}
 
 .herobaner{
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0px;
+}
+.hero-wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.ln1{
+  font-size: 100px !important;
+  text-align: center !important;
 }
 .plane{
   background-color: #6b633f;
