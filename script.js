@@ -277,3 +277,51 @@ document.addEventListener("DOMContentLoaded", () => {
   // Har 2.5 seconds ke baad ek new random image spawn hogi
   setInterval(showRandomImage, 2500);
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const journeySection = document.querySelector(".journey-section");
+  if (!journeySection) return;
+
+  // 1. Card element create karke section ke andar append karein
+  const hoverCard = document.createElement("div");
+  hoverCard.classList.add("journey-hover-card");
+  hoverCard.innerHTML = `
+    <div class="card-img"></div>
+    <div class="card-content">
+      <h5 class="card-title"></h5>
+      <p class="card-desc"></p>
+    </div>
+  `;
+  journeySection.appendChild(hoverCard);
+
+  const stops = document.querySelectorAll(".journey .stop");
+
+  stops.forEach((stop) => {
+    const imgSrc = stop.getAttribute("data-img");
+    const titleText = stop.getAttribute("data-title");
+    const descText = stop.getAttribute("data-desc");
+
+    stop.addEventListener("mouseenter", () => {
+      hoverCard.querySelector(".card-img").style.backgroundImage = `url('${imgSrc}')`;
+      hoverCard.querySelector(".card-title").innerHTML = titleText;
+      hoverCard.querySelector(".card-desc").innerHTML = descText;
+
+      // Card position calculate karna har stop ke upar
+      const stopRect = stop.getBoundingClientRect();
+      const sectionRect = journeySection.getBoundingClientRect();
+
+      const leftPos = stopRect.left - sectionRect.left + (stopRect.width / 2);
+      const topPos = stopRect.top - sectionRect.top - 95; // Dot ke thora ooper
+
+      hoverCard.style.left = `${leftPos}px`;
+      hoverCard.style.top = `${topPos}px`;
+
+      hoverCard.classList.add("active");
+    });
+
+    stop.addEventListener("mouseleave", () => {
+      hoverCard.classList.remove("active");
+    });
+  });
+});
