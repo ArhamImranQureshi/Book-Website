@@ -14,8 +14,13 @@ a:hover{color:var(--gold2);text-decoration:underline}
 .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
 .narrow{max-width:720px;margin:0 auto;padding:0 20px}
 
-
-
+.herobaner{
+  min-height: 100vh;
+}
+.plane{
+  background-color: #6b633f;
+  height: 100px ;
+}
 /* Section Setup */
 .quote-section {
   position: relative;
