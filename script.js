@@ -353,3 +353,73 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const timelineItems = document.querySelectorAll(".timeline-item");
+
+  if (timelineItems.length > 0) {
+    const observerOptions = {
+      root: null,
+      threshold: 0.15,
+      rootMargin: "0px 0px -50px 0px"
+    };
+
+    const timelineObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    timelineItems.forEach(item => {
+      timelineObserver.observe(item);
+    });
+  }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const timelineSection = document.querySelector(".timeline-section");
+  const spineFill = document.getElementById("spineFill");
+  const dots = document.querySelectorAll(".t-dot");
+
+  if (!timelineSection || !spineFill) return;
+
+  function updateTimelineProgress() {
+    const sectionRect = timelineSection.getBoundingClientRect();
+    const sectionHeight = timelineSection.offsetHeight;
+    const viewportHeight = window.innerHeight;
+
+    // Calculate how much of the timeline section has been scrolled
+    const scrollStart = sectionRect.top - (viewportHeight / 2);
+    const totalScrollable = sectionHeight;
+
+    let progress = 0;
+
+    if (scrollStart < 0) {
+      progress = (Math.abs(scrollStart) / totalScrollable) * 100;
+    }
+
+    // Clamp progress between 0% and 100%
+    progress = Math.min(Math.max(progress, 0), 100);
+    spineFill.style.height = `${progress}%`;
+
+    // Highlight timeline markers as the progress line touches them
+    dots.forEach((dot) => {
+      const dotRect = dot.getBoundingClientRect();
+      if (dotRect.top <= (viewportHeight / 2)) {
+        dot.classList.add("active-dot");
+      } else {
+        dot.classList.remove("active-dot");
+      }
+    });
+  }
+
+  // Update on scroll & resize
+  window.addEventListener("scroll", updateTimelineProgress);
+  window.addEventListener("resize", updateTimelineProgress);
+  updateTimelineProgress(); // Initial call
+});
