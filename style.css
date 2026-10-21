@@ -14,7 +14,58 @@ a:hover{color:var(--gold2);text-decoration:underline}
 .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
 .narrow{max-width:720px;margin:0 auto;padding:0 20px}
 
+/* --- Scoped Book Showcase Section (No Global Impact) --- */
+/* --- Wrap1 Grid Layout for Book Showcase --- */
+.wrap1 {
+  display: grid !important;
+  grid-template-columns: 700px 1fr !important; /* Left column image ke liye fix, right column text ke liye */
+  gap: 60px !important;
+  align-items: center !important;
+  width: 100%;
+  max-width: 1440px; /* Aapke site ke container width ke mutabiq */
+  margin: 0 auto;
+  padding: 0 20px;
+}
 
+/* Book Image Pane Styling */
+.book-image-pane {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Book Cover Image - Bari Size */
+.book-showcase-img {
+  width: 100% !important;
+  max-width: 100% !important; /* Image ka bara size jo khul kar nazar aaye */
+  height: auto !important;
+  border-radius: 8px;
+  display: block;
+  padding:0px;
+}
+
+/* Book Text Pane */
+.book-text-pane {
+  width: 100%;
+}
+
+/* Mobile & Tablet Responsive (Screens below 900px) */
+@media (max-width: 900px) {
+  .wrap1 {
+    grid-template-columns: 1fr !important; /* Mobile par single column ho jaye ga */
+    text-align: center;
+    gap: 30px !important;
+  }
+  
+  .book-showcase-img {
+    max-width: 260px !important; /* Mobile ke liye proper compact size */
+    margin: 0 auto;
+  }
+
+  .wrap1 .rule {
+    justify-content: center !important;
+  }
+}
 /* --- Transparent Header Overlaying the Banner --- */
 /* --- New Cinematic Header (Transparent & Sticky) --- */
 header.cinematic-header {
@@ -544,7 +595,6 @@ h2.title{font-family:'Cinzel',serif;color:var(--gold2);font-size:30px;letter-spa
 .band{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
 @media(max-width:820px){.two{grid-template-columns:1fr}}
-.two img{border:1px solid var(--line);box-shadow:0 14px 40px rgba(0,0,0,.45)}
 
 /* timeline */
 .timeline{position:relative;margin:30px 0 0;padding-left:30px;border-left:2px solid var(--line)}
