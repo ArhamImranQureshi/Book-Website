@@ -16,6 +16,117 @@ a:hover{color:var(--gold2);text-decoration:underline}
 
 /* --- Scoped Book Showcase Section (No Global Impact) --- */
 /* --- Wrap1 Grid Layout for Book Showcase --- */
+
+.pad-class{
+  padding-bottom:200px;
+  padding-top:80px;
+}
+/* --- Featured Memoir Banner Section --- */
+.featured-book-section {
+  position: relative;
+  background-color: #14130c !important; /* Deep charcoal matching your existing dark theme */
+  border-top: 0px solid rgba(197, 160, 89, 0.2); /* Subtle antique gold border */
+  border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+  margin-top: 0px; /* Extra spacing to accommodate the overlapping cover */
+  margin-bottom: 0px;
+  padding: 70px 0;
+}
+
+.featured-book-wrap {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+}
+
+/* Left Column: Overlapping Cover Container */
+.featured-cover-col {
+  position: relative;
+}
+
+/* Overlapping Book Cover Image */
+.featured-book-img {
+  position: absolute;
+  bottom: -70px; /* Extends gracefully past the bottom padding */
+  left: 0;
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  transform: translateY(96px); /* Pulls the top of the cover up and out of the section */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+/* Right Column: Content Styling */
+.featured-content-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+.featured-eyebrow {
+  font-family: Cinzel, serif;
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  color: #c5a059; /* Antique gold accent */
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.featured-title {
+  font-family: Cinzel, serif;
+  font-size: 2.8rem;
+  color: #f4efe6; /* Warm ivory heading */
+  margin-bottom: 18px;
+  line-height: 1.15;
+}
+
+.featured-desc {
+  font-size: 15px;
+  line-height: 1.65;
+  color: #dfd3c3; /* Muted warm ivory body text */
+  margin-bottom: 28px;
+  max-width: 600px;
+}
+
+.featured-action {
+  display: flex;
+  align-items: center;
+}
+
+/* Responsive Tablet & Mobile Adjustments */
+@media (max-width: 900px) {
+  .featured-book-section {
+    margin-top: 50px;
+  }
+  .featured-book-wrap {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+  }
+  .featured-cover-col {
+    display: flex;
+    justify-content: center;
+    position: static;
+  }
+  .featured-book-img {
+    position: static;
+    transform: none !important;
+    max-width: 260px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+  }
+  .featured-content-col {
+    align-items: center;
+    text-align: center;
+  }
+  .featured-desc {
+    max-width: 100%;
+  }
+}
+
+
 .wrap1 {
   display: grid !important;
   grid-template-columns: 700px 1fr !important; /* Left column image ke liye fix, right column text ke liye */
@@ -75,7 +186,7 @@ footer.cinematic-footer {
   font-family: serif;
   border-top: 1px solid rgba(210, 180, 140, 0.15);
   padding-top: 70px;
-  margin-top: 80px;
+  margin-top: 0px;
   text-align: left !important; /* Forces left alignment globally inside footer */
 }
 
@@ -782,7 +893,7 @@ h2.title{font-family:'Cinzel',serif;color:var(--gold2);font-size:30px;letter-spa
 .card a.stretch{color:inherit}
 .card a.stretch:hover{text-decoration:none}
 
-.band{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.band{background:var(--bg2);border-top:0px solid var(--line);border-bottom:0px solid var(--line)}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
 @media(max-width:820px){.two{grid-template-columns:1fr}}
 
