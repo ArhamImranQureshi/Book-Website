@@ -200,6 +200,36 @@ a:hover{color:var(--gold2);text-decoration:underline}
    Special Wartime Events Styling
    ========================================================================== */
 
+/* Glassmorphism Styling for Hero Narrative Container */
+.hero-narrative-container {
+  
+  position: relative;
+  z-index: 7;
+  max-width: 760px;
+  margin: 0 auto 1vh auto;
+  padding: 30px 30px !important;
+  
+  /* #1B1913 Glassmorphism Core Effect */
+  background: rgba(27, 25, 19, 0.65); /* #1B1913 color with transparency */
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  
+  /* Subtle Antique Gold / Glass Border & Shadow */
+  border: 1px solid rgba(197, 160, 89, 0.25);
+  border-radius: 12px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 
+              inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Mobile Screens ke liye Padding Adjustments */
+@media (max-width: 768px) {
+  .hero-narrative-container {
+    padding: 24px 20px;
+    margin: 0 15px 1vh 15px;
+  }
+}
+
+
 /* Pearl Harbor */
 .war-card {
   border-color: rgba(197, 160, 89, 0.45);
