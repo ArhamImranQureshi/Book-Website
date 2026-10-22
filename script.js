@@ -231,11 +231,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Aap yahan apni jitni marzi images ke paths add kar sakte hain
   const imagesList = [
-    "img/cover.jpg",
-    "img/cover.jpg",
-    "img/cover.jpg",
-    "img/cover.jpg",
-    "img/cover.jpg"
+    "./img/cover.jpg",
+    "./img/cover.jpg",
+    "./img/cover.jpg",
+    "./img/cover.jpg",
+    "./img/cover.jpg"
   ];
 
   function showRandomImage() {

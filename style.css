@@ -455,7 +455,7 @@ a:hover{color:var(--gold2);text-decoration:underline}
 footer.cinematic-footer {
   /* Dark overlay gradient + background image combined */
   background: linear-gradient(rgba(11, 11, 14, 0.72), rgba(11, 11, 14, 0.56)), 
-              url('./img/herobg.png') bottom center / cover no-repeat;
+              url('././img/herobg.png') bottom center / cover no-repeat;
   color: #dfd3c3;
   font-family: serif;
   border-top: 1px solid rgba(210, 180, 140, 0.15);
