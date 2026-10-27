@@ -20,6 +20,28 @@ a:hover{color:var(--gold2);text-decoration:underline}
 /* ==========================================================================
    Editorial Alternating Vertical Timeline
    ========================================================================== */
+@media(max-width:900px){
+  h2.title{
+    text-align: center !important;
+  }
+  .two p{
+    text-align:center !important;
+  }
+.rule{
+  justify-content: center !important;
+}
+
+.two .btn{
+  display: block !important;
+}
+
+}
+
+
+.rule{
+  display: flex;
+  justify-content: flex-start;
+}
 
 .timeline-section {
   position: relative;
@@ -323,6 +345,11 @@ a:hover{color:var(--gold2);text-decoration:underline}
   padding-bottom:200px;
   padding-top:80px;
 }
+@media(max-width:900px){
+  .pad-class{
+    padding:60px 0px !important;
+  }
+}
 /* --- Featured Memoir Banner Section --- */
 .featured-book-section {
   position: relative;
@@ -471,7 +498,7 @@ a:hover{color:var(--gold2);text-decoration:underline}
   }
   
   .book-showcase-img {
-    max-width: 260px !important; /* Mobile ke liye proper compact size */
+    max-width: 100% !important; /* Mobile ke liye proper compact size */
     margin: 0 auto;
   }
 
@@ -1076,7 +1103,14 @@ header.cinematic-header .wrap {
   max-width: 800px;
   margin: 0 auto;
 }
-
+@media(max-width:900px){
+  .quote-section{
+    padding: 50px 20px !important;
+  }
+  .quote-section .quote{
+    font-size: 18px !important;
+  }
+}
 /* Background Images Container */
 .quote-bg-images {
   position: absolute;
@@ -1251,9 +1285,29 @@ header.cinematic-header .wrap {
 }
 
 .stats {
-  display: flex;
+  /* display: flex;
   justify-content: space-between;
-  gap: 20px;
+  gap: 20px; */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+@media(max-width:900px){
+.stats {
+  /* display: flex;
+  justify-content: space-between;
+  gap: 20px; */
+  display: grid !important;
+  grid-template-columns:repeat(2,1fr) !important;
+}
+}
+@media(max-width:767.98px){
+.stats {
+  /* display: flex;
+  justify-content: space-between;
+  gap: 20px; */
+  display: grid !important;
+  grid-template-columns:repeat(1,1fr) !important;
+}
 }
 
 .stat {
@@ -1315,6 +1369,7 @@ nav a:hover,nav a.on{color:var(--gold);text-decoration:none}
 
 section{padding:64px 0}
 h2.title{font-family:'Cinzel',serif;color:var(--gold2);font-size:30px;letter-spacing:.06em;margin:0 0 6px}
+
 .rule{display:flex;align-items:center;gap:12px;color:var(--gold);margin:6px 0 30px}
 .rule:before,.rule:after{content:"";height:1px;background:var(--line);flex:1;max-width:120px}
 .rule span{font-size:14px}
