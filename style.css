@@ -222,7 +222,7 @@ a:hover{color:var(--gold2);text-decoration:underline}
 /* Mobile Screens ke liye Padding Adjustments */
 @media (max-width: 768px) {
   .hero-narrative-container {
-    padding: 24px 20px;
+    padding: 5px 10px;
     margin: 0 15px 1vh 15px;
   }
 }
@@ -908,10 +908,11 @@ header.cinematic-header .wrap {
     display: none;
   }
   .grandfather-img {
-    max-height: 60vh;
+    max-height: 80vh;
   }
   .cinematic-title {
-    font-size: 2.2rem !important;
+    font-size: 40px !important;
+    line-height: 45px;
   }
 }
 
