@@ -423,3 +423,37 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("resize", updateTimelineProgress);
   updateTimelineProgress(); // Initial call
 });
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const toggleBtn = document.getElementById('toggle-btn');
+  const closeBtn = document.getElementById('close-btn');
+  const navMenu = document.getElementById('nav-menu');
+  const overlay = document.getElementById('nav-overlay');
+
+  // Drawer Open karne ka function
+  function openMenu() {
+    navMenu.classList.add('open');
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Page scroll pause karne ke liye
+  }
+
+  // Drawer Close karne ka function
+  function closeMenu() {
+    navMenu.classList.remove('open');
+    overlay.classList.remove('active');
+    document.body.style.overflow = ''; // Page scroll resume
+  }
+
+  // Event Listeners
+  if (toggleBtn) toggleBtn.addEventListener('click', openMenu);
+  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+  if (overlay) overlay.addEventListener('click', closeMenu);
+
+  // Link par click hone par drawer automatic band ho jaye
+  const navLinks = navMenu.querySelectorAll('a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+});

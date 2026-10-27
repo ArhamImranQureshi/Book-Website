@@ -22,20 +22,33 @@
   </head>
   <body>
     <div id="pre">
-      <svg viewBox="0 0 100 100">
-        <path
-          d="M50 6l13 28 30 4-22 21 6 30-27-15-27 15 6-30L7 38l30-4z"
-        /></svg
-      ><b>SAVING OTTO BRUNE</b>
-    </div>
-    <div id="bar"></div>
-    <button id="top" aria-label="Back to top">&uarr;</button>
-    <header class="cinematic-header">
+  <svg viewBox="0 0 100 100">
+    <path d="M50 6l13 28 30 4-22 21 6 30-27-15-27 15 6-30L7 38l30-4z" />
+  </svg>
+  <b>SAVING OTTO BRUNE</b>
+</div>
+<div id="bar"></div>
+<button id="top" aria-label="Back to top">&uarr;</button>
+
+<!-- Backdrop Overlay for Mobile Drawer -->
+<div class="nav-overlay" id="nav-overlay"></div>
+
+<header class="cinematic-header">
   <div class="wrap">
     <a class="brand" href="index.html" style="text-decoration: none">
       Saving Otto Brune<small>Memoirs of a US Army Medic</small>
     </a>
-    <nav>
+    
+    <!-- Mobile Toggle Button (Hamburger) -->
+    <button class="nav-toggle" id="toggle-btn" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Navigation Drawer -->
+    <nav id="nav-menu">
+      <button class="close-btn" id="close-btn" aria-label="Close navigation">&times;</button>
       <a href="index.html" class="on">Home</a>
       <a href="blog.html">The Blog</a>
       <a href="timeline.html">Timeline</a>

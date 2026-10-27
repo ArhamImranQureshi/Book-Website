@@ -671,19 +671,19 @@ footer.cinematic-footer {
 
 /* --- Transparent Header Overlaying the Banner --- */
 /* --- New Cinematic Header (Transparent & Sticky) --- */
+/* Purana Header CSS */
 header.cinematic-header {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  background: transparent; /* Shuru mein bilkul transparent */
+  background: transparent;
   z-index: 10000;
   transition: background-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   padding: 18px 0;
 }
 
-/* Scroll hone par sticky state with background #1A1912 */
 header.cinematic-header.scrolled {
   position: fixed;
   background-color: #1A1912 !important;
@@ -692,14 +692,152 @@ header.cinematic-header.scrolled {
   padding: 12px 0;
 }
 
-/* Header inner layout adjustments agar zaroorat ho */
 header.cinematic-header .wrap {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
+/* --- Mobile Responsive Styles --- */
 
+/* Default desktop hide toggle & close buttons */
+.nav-toggle, .close-btn, .nav-overlay {
+  display: none;
+}
+
+/* Mobile Screens (768px ya usse kam) */
+@media (max-width: 768px) {
+  
+  /* Hamburger Button */
+  .nav-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10001;
+  }
+
+  .nav-toggle span {
+    width: 100%;
+    height: 2px;
+    background-color: #ffffff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  /* Overlay Background jab drawer khula ho */
+  .nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    /* background: rgba(0, 0, 0, 0.6); */
+    /* backdrop-filter: blur(4px); */
+    z-index: 10001;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .nav-overlay.active {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+  }
+  @media (max-width: 768px) {
+
+  /* Mobile Drawer Box */
+  header.cinematic-header nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 260px;
+    height: 100vh;
+    background-color: #1A1912;
+    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.8);
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Items ko upar se start karne ke liye */
+    gap: 0;                      /* Items ke beech extra gap zero karne ke liye */
+    
+    padding: 70px 24px 30px;     /* Upar close button ki jagah chhor kar spacing */
+    transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+    z-index: 10002;
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  /* Drawer Links - Gap yahan se control hoga */
+  header.cinematic-header nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 10px 0; /* Padding kam kardi (8px - 10px perfect hoti hai) */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: color 0.3s ease, padding-left 0.3s ease;
+  }
+
+}
+
+  /* Slide-out Mobile Drawer */
+  header.cinematic-header nav {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Shuru mein screen se bahar */
+    width: 260px;
+    height: 100vh;
+    background-color: #1A1912;
+    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    padding: 80px 30px 30px;
+    transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+    z-index: 10002;
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  /* When Menu is Open */
+  header.cinematic-header nav.open {
+    right: 0; /* Slide in inside screen */
+  }
+
+  /* Links inside mobile drawer */
+  header.cinematic-header nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: color 0.3s ease, padding-left 0.3s ease;
+  }
+
+  header.cinematic-header nav a:hover,
+  header.cinematic-header nav a.on {
+    color: #d4af37; /* Accent gold color */
+    padding-left: 8px;
+  }
+
+  /* Close Button (Cross Icon) */
+  .close-btn {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 2rem;
+    color: #ffffff;
+    background: none;
+    border: none;
+    cursor: pointer;
+    line-height: 1;
+  }
+}
 
 /* --- Cinematic Editorial Hero (Bottom Aligned) --- */
 .herobaner.cinematic-editorial-hero {
