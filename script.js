@@ -446,14 +446,8 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = ''; // Page scroll resume
   }
 
-  // Event Listeners
+  // Event Listeners for Toggle, Close button, and Overlay
   if (toggleBtn) toggleBtn.addEventListener('click', openMenu);
   if (closeBtn) closeBtn.addEventListener('click', closeMenu);
   if (overlay) overlay.addEventListener('click', closeMenu);
-
-  // Link par click hone par drawer automatic band ho jaye
-  const navLinks = navMenu.querySelectorAll('a');
-  navLinks.forEach(link => {
-    link.addEventListener('click', closeMenu);
-  });
 });

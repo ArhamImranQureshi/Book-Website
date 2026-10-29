@@ -331,11 +331,11 @@ a:hover{color:var(--gold2);text-decoration:underline}
   }
 
   .t-img-frame {
-    height: 180px;
+    height: 350px;
   }
 
   .t-img {
-    height: 180px;
+    height: 350px;
   }
 }
 
@@ -516,7 +516,7 @@ footer.cinematic-footer {
   border-top: 1px solid rgba(210, 180, 140, 0.15);
   padding-top: 70px;
   margin-top: 0px;
-  text-align: left !important; /* Forces left alignment globally inside footer */
+  text-align: left; /* Desktop par left rahega */
 }
 
 /* Multi-Column Grid Layout */
@@ -539,7 +539,6 @@ footer.cinematic-footer {
   color: #f4efe6;
   display: block;
   margin-bottom: 6px;
-  text-align: left;
 }
 
 .footer-subtitle {
@@ -547,7 +546,6 @@ footer.cinematic-footer {
   color: var(--muted);
   letter-spacing: 0.05em;
   margin-bottom: 16px;
-  text-align: left;
 }
 
 .footer-divider {
@@ -555,7 +553,6 @@ footer.cinematic-footer {
   font-size: 14px;
   margin-bottom: 16px;
   opacity: 0.8;
-  text-align: left;
 }
 
 .footer-desc {
@@ -563,7 +560,6 @@ footer.cinematic-footer {
   line-height: 1.6;
   color: var(--muted);
   max-width: 320px;
-  text-align: left;
 }
 
 /* Column Headings */
@@ -573,8 +569,7 @@ footer.cinematic-footer {
   letter-spacing: 0.25em;
   color: #c5a059;
   text-transform: uppercase;
-  margin:0px 0px 20px 0px;
-  text-align: left;
+  margin: 0px 0px 20px 0px;
 }
 
 /* Navigation Links List */
@@ -585,11 +580,6 @@ footer.cinematic-footer {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  text-align: left;
-}
-
-.footer-links li {
-  text-align: left;
 }
 
 .footer-links a {
@@ -603,7 +593,7 @@ footer.cinematic-footer {
 
 .footer-links a:hover {
   color: #f4efe6;
-  transform: translateX(5px); /* Smooth subtle right motion */
+  transform: translateX(5px);
 }
 
 /* Quote Box Styling */
@@ -611,7 +601,6 @@ footer.cinematic-footer {
   position: relative;
   padding-left: 16px;
   border-left: 1px solid rgba(197, 160, 89, 0.4);
-  text-align: left;
 }
 
 .quote-mark {
@@ -621,7 +610,6 @@ footer.cinematic-footer {
   line-height: 0.5;
   display: block;
   margin-bottom: 8px;
-  text-align: left;
 }
 
 .verse-text {
@@ -629,7 +617,6 @@ footer.cinematic-footer {
   line-height: 1.5;
   color: #e6ded6;
   margin-bottom: 8px;
-  text-align: left;
 }
 
 .verse-ref {
@@ -638,7 +625,6 @@ footer.cinematic-footer {
   color: var(--muted);
   font-family: Cinzel, serif;
   display: block;
-  text-align: left;
 }
 
 /* Bottom Copyright Bar */
@@ -654,11 +640,9 @@ footer.cinematic-footer {
   align-items: center;
   font-size: 12px;
   color: var(--muted);
-  text-align: left;
 }
 
 .copyright-text {
-  text-align: left;
   margin: 0;
 }
 
@@ -674,23 +658,73 @@ footer.cinematic-footer {
   text-decoration: underline;
 }
 
-/* Responsive Adjustments */
+
+/* --- RESPONSIVE / MOBILE & TABLET CENTER ALIGNMENT --- */
+
+/* --- RESPONSIVE / MOBILE & TABLET CENTER ALIGNMENT --- */
+
 @media (max-width: 900px) {
+  .fot-nav{
+    display: flex;
+    justify-content: center !important;
+  }
+  footer.cinematic-footer {
+    text-align: center !important;
+  }
+
   .footer-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center !important;
+  }
+
+  .footer-col {
+    text-align: center !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 👈 Isse columns ke andar ka content center align ho jayega */
+  }
+
+  .footer-desc {
+    margin: 0 auto;
+    text-align: center !important;
+  }
+
+  /* Navigation Links list ko center mein lane ke liye */
+  .footer-links {
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .footer-links a {
+    text-align: center !important;
+  }
+
+  /* Tablet/Mobile par hover animation ko neutral rakhne ke liye taaki left-right shift na ho */
+  .footer-links a:hover {
+    transform: none; 
+  }
+
+  /* Quote box ki border line */
+  .footer-quote-box {
+    border-left: none; 
+    border-top: 1px solid rgba(197, 160, 89, 0.4);
+    padding-left: 0;
+    padding-top: 16px;
+    text-align: center !important;
   }
 }
 
 @media (max-width: 600px) {
   .footer-grid {
-    grid-template-columns: 1fr;
     gap: 35px;
   }
+
   .bottom-bar-content {
     flex-direction: column;
-    align-items: flex-start; /* Mobile par bhi bottom bar items left align honge */
+    align-items: center;
     gap: 12px;
+    text-align: center;
   }
 }
 
@@ -699,19 +733,32 @@ footer.cinematic-footer {
 /* --- Transparent Header Overlaying the Banner --- */
 /* --- New Cinematic Header (Transparent & Sticky) --- */
 /* Purana Header CSS */
+/* --- Default Header Style (Baaki sabhi pages ke liye - Solid/Sticky background) --- */
 header.cinematic-header {
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative; /* Baaki pages par normal flow mein rahega */
   width: 100%;
-  background: transparent;
-  z-index: 10000;
+  background-color: #1A1912 !important; /* Hamesha solid background */
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  padding: 12px 0;
+  border-bottom: none;
   transition: background-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 18px 0;
 }
 
-header.cinematic-header.scrolled {
+/* --- Sirf Homepage (.home-page) ke liye Transparent & Banner ke upar --- */
+body.home-page header.cinematic-header {
+  position: absolute; /* Banner ke upar float karega */
+  top: 0;
+  left: 0;
+  background: transparent !important; /* Shuru mein bilkul transparent */
+  box-shadow: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 18px 0;
+  z-index: 10000;
+}
+
+/* Jab homepage par user scroll karega, tab JS wali class (.scrolled) isko solid kar degi */
+body.home-page header.cinematic-header.scrolled {
   position: fixed;
   background-color: #1A1912 !important;
   box-shadow: 0 4px 25px rgba(0, 0, 0, 0.7);
@@ -719,6 +766,7 @@ header.cinematic-header.scrolled {
   padding: 12px 0;
 }
 
+/* Header inner layout */
 header.cinematic-header .wrap {
   display: flex;
   justify-content: space-between;
@@ -734,8 +782,9 @@ header.cinematic-header .wrap {
 }
 
 /* Mobile Screens (768px ya usse kam) */
+/* --- Mobile Responsive Styles (768px ya usse kam) --- */
 @media (max-width: 768px) {
-  
+
   /* Hamburger Button */
   .nav-toggle {
     display: flex;
@@ -758,62 +807,8 @@ header.cinematic-header .wrap {
     transition: all 0.3s ease;
   }
 
-  /* Overlay Background jab drawer khula ho */
-  .nav-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    /* background: rgba(0, 0, 0, 0.6); */
-    /* backdrop-filter: blur(4px); */
-    z-index: 10001;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-  }
-
-  .nav-overlay.active {
-    display: block;
-    opacity: 1;
-    visibility: visible;
-  }
-  @media (max-width: 768px) {
-
-  /* Mobile Drawer Box */
-  header.cinematic-header nav {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 260px;
-    height: 100vh;
-    background-color: #1A1912;
-    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.8);
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; /* Items ko upar se start karne ke liye */
-    gap: 0;                      /* Items ke beech extra gap zero karne ke liye */
-    
-    padding: 70px 24px 30px;     /* Upar close button ki jagah chhor kar spacing */
-    transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
-    z-index: 10002;
-    border-left: 1px solid rgba(255, 255, 255, 0.08);
-  }
-
-  /* Drawer Links - Gap yahan se control hoga */
-  header.cinematic-header nav a {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 1rem;
-    padding: 10px 0; /* Padding kam kardi (8px - 10px perfect hoti hai) */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    transition: color 0.3s ease, padding-left 0.3s ease;
-  }
-
-}
-
-  /* Slide-out Mobile Drawer */
+  /* Overlay Background (Agar blur ya dark shade rakhna ho) */
+  /* Slide-out Mobile Drawer Box */
   header.cinematic-header nav {
     position: fixed;
     top: 0;
@@ -822,25 +817,29 @@ header.cinematic-header .wrap {
     height: 100vh;
     background-color: #1A1912;
     box-shadow: -5px 0 25px rgba(0, 0, 0, 0.8);
+    
     display: flex;
     flex-direction: column;
-    padding: 80px 30px 30px;
+    justify-content: flex-start; /* Items upar se start honge */
+    gap: 0;
+    
+    padding: 70px 24px 30px; /* Upar close button ke liye space */
     transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
     z-index: 10002;
     border-left: 1px solid rgba(255, 255, 255, 0.08);
   }
 
-  /* When Menu is Open */
+  /* Jab Menu Open ho (JS class add karegi) */
   header.cinematic-header nav.open {
-    right: 0; /* Slide in inside screen */
+    right: 0; /* Screen ke andar slide ho jayega */
   }
 
   /* Links inside mobile drawer */
   header.cinematic-header nav a {
     color: #ffffff;
     text-decoration: none;
-    font-size: 1.1rem;
-    padding: 12px 0;
+    font-size: 1rem;
+    padding: 10px 0; /* Links ke beech ka gap control karne ke liye */
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     transition: color 0.3s ease, padding-left 0.3s ease;
   }
@@ -848,7 +847,7 @@ header.cinematic-header .wrap {
   header.cinematic-header nav a:hover,
   header.cinematic-header nav a.on {
     color: #d4af37; /* Accent gold color */
-    padding-left: 8px;
+    padding-left: 6px;
   }
 
   /* Close Button (Cross Icon) */
@@ -865,7 +864,6 @@ header.cinematic-header .wrap {
     line-height: 1;
   }
 }
-
 /* --- Cinematic Editorial Hero (Bottom Aligned) --- */
 .herobaner.cinematic-editorial-hero {
   position: relative;
