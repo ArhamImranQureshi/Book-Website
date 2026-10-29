@@ -33,6 +33,7 @@ a:hover{color:var(--gold2);text-decoration:underline}
 
 .two .btn{
   display: block !important;
+  text-align: center;
 }
 
 }
@@ -1078,6 +1079,11 @@ header.cinematic-header .wrap {
     line-height: 45px;
   }
 }
+@media (max-width:435px) {
+  .grandfather-img{
+    display: none;
+  }
+}
 
 
 
@@ -1430,7 +1436,7 @@ figcaption{font-size:14px;font-style:italic;color:var(--muted);margin-top:12px}
 .note{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--gold);padding:20px 24px;font-size:16px}
 .ribbon{background:var(--red);color:#fff;text-align:center;font-size:12px;letter-spacing:.2em;padding:7px 10px;font-family:'Cinzel',serif;text-transform:uppercase}
 
-form.contact{display:grid;gap:14px;max-width:560px}
+form.contact{display:grid;gap:14px;}
 form.contact input,form.contact textarea{background:var(--card);border:1px solid var(--line);color:var(--ink);padding:12px 14px;font:inherit;border-radius:2px}
 form.contact input:focus,form.contact textarea:focus{outline:1px solid var(--gold)}
 button.btn{border:0;cursor:pointer}
