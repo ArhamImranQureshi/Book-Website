@@ -1066,6 +1066,17 @@ header.cinematic-header .wrap {
 }
 
 /* Responsive Adjustments */
+@media(min-wdith:1024px) and (max-width:1366px){
+  .cinematic-title {
+    font-size: 50px !important;
+    line-height: 45px !important;
+  }
+  .hero-narrative-container{
+    padding:10px 30px !important;
+  }
+}
+
+
 @media (max-width: 900px) {
   .editorial-side-left,
   .editorial-side-right {
