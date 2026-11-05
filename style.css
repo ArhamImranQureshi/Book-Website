@@ -479,8 +479,9 @@ a:hover{color:var(--gold2);text-decoration:underline}
 .book-showcase-img {
   width: 100% !important;
   max-width: 100% !important; /* Image ka bara size jo khul kar nazar aaye */
-  height: auto !important;
+  height: 650px !important;
   border-radius: 8px;
+  object-fit: cover;
   display: block;
   padding:0px;
 }
