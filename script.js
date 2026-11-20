@@ -99,6 +99,40 @@ if(lb){
 }
 })();
 
+
+  const launchDate = new Date("December 7, 2026 00:00:00").getTime();
+
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = launchDate - now;
+
+        if (distance <= 0) {
+            document.getElementById("days").innerText = "00";
+            document.getElementById("hours").innerText = "00";
+            document.getElementById("minutes").innerText = "00";
+            document.getElementById("seconds").innerText = "00";
+            return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((distance / (1000 * 60)) % 60);
+        const seconds = Math.floor((distance / 1000) % 60);
+
+        document.getElementById("days").innerText = days;
+        document.getElementById("hours").innerText = hours;
+        document.getElementById("minutes").innerText = minutes;
+        document.getElementById("seconds").innerText = seconds;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+function closePopup() {
+    document.querySelector(".popup").style.display = "none";
+}
+
+
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Reading Progress Bar
   const progressBar = document.createElement('div');
@@ -450,4 +484,41 @@ document.addEventListener('DOMContentLoaded', () => {
   if (toggleBtn) toggleBtn.addEventListener('click', openMenu);
   if (closeBtn) closeBtn.addEventListener('click', closeMenu);
   if (overlay) overlay.addEventListener('click', closeMenu);
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const bookCard = document.querySelector(".book-showcase-img");
+  const bookContainer = document.querySelector(".book-image-pane");
+
+  if (!bookCard || !bookContainer) return;
+
+  // Jab mouse container ke andar move kare
+  bookContainer.addEventListener("mousemove", (e) => {
+    const rect = bookContainer.getBoundingClientRect();
+    
+    // Mouse ka X aur Y coordinate card ke center ke mutabiq nikalna (-1 se +1 range)
+    const x = e.clientX - rect.left; // x position inside element
+    const y = e.clientY - rect.top;  // y position inside element
+    
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    
+    // Tilt angle calculate karna (maximum 15 degrees tak tilt hoga)
+    const rotateX = -((y - centerY) / centerY) * 5; 
+    const rotateY = ((x - centerX) / centerX) * 5;
+
+    // Transform apply karna (3D rotate + thoda upar lift karna)
+    bookCard.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px) scale(1.02)`;
+  });
+
+  // Jab mouse container se bahar jaye toh book wapas apni original position par aa jaye
+  bookContainer.addEventListener("mouseleave", () => {
+    bookCard.style.transition = "transform 0.5s ease-in-out, box-shadow 0.5s ease";
+    bookCard.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px) scale(1)";
+  });
+
+  // Jab mouse wapas enter ho toh transition fast kar dena taaki lag na aaye
+  bookContainer.addEventListener("mouseenter", () => {
+    bookCard.style.transition = "transform 0.1s ease-out, box-shadow 0.3s ease";
+  });
 });

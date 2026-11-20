@@ -22,6 +22,11 @@
     </script>
   </head>
   <body class="home-page">
+
+
+
+
+
     <div id="pre">
   <svg viewBox="0 0 100 100">
     <path d="M50 6l13 28 30 4-22 21 6 30-27-15-27 15 6-30L7 38l30-4z" />
@@ -58,6 +63,72 @@
     </nav>
   </div>
 </header>
+
+
+<div class="popup">
+    <div class="popup-content">
+
+        <!-- Close Button -->
+        <button class="close-popup" onclick="closePopup()">×</button>
+
+        <!-- Left Side Content -->
+        <div class="left-side">
+
+            <h1>A New Chapter Begins Soon!</h1>
+
+            <p>
+                A remarkable story is about to unfold. Get ready to explore a world of ideas, inspiration, and unforgettable words. Our upcoming book is almost here, and we can't wait to share this journey with you.
+            </p>
+
+            <div class="release">
+                Release On: <strong><span class="datei">07 December 2026</span></strong>
+            </div>
+
+            <!-- Countdown -->
+            <div class="countdown">
+
+                <div class="time-box">
+                    <h2 id="days">00</h2>
+                    <span>DAYS</span>
+                </div>
+
+                <div class="time-box">
+                    <h2 id="hours">00</h2>
+                    <span>HOURS</span>
+                </div>
+
+                <div class="time-box">
+                    <h2 id="minutes">00</h2>
+                    <span>MINUTES</span>
+                </div>
+
+                <div class="time-box">
+                    <h2 id="seconds">00</h2>
+                    <span>SECONDS</span>
+                </div>
+
+            </div>
+            Stay tuned. Your next favorite read is just around the corner!
+
+        </div>
+
+        <!-- Right Side Image -->
+        <div class="popup-image">
+
+            <img
+                src="./img/BOOKCOVER.png"
+                alt="Coming Soon"
+            >
+
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
     <!-- <section class="hero">
       <canvas id="embers"></canvas>
       <div class="wrap">
@@ -106,7 +177,16 @@
         </div>
       </div>
       <div class="scroll-hint"></div>
-    </section> -->
+    </section>
+    
+    
+    
+    -->
+
+
+
+
+
 
 <section class="herobaner cinematic-editorial-hero">
   <canvas id="embers"></canvas>
@@ -117,10 +197,10 @@
     Your browser does not support the video tag.
   </video>
 
-  <!-- Dark Vignette / Contrast Overlay (Video ko dark rakhne ke liye) -->
+  <!-- Dark Vignette / Contrast Overlay -->
   <div class="ground-haze-overlay"></div>
 
-  <!-- Editorial Negative Space Accents -->
+  <!-- Editorial Negative Space Accents (Hidden on Mobile for cleanliness) -->
   <div class="editorial-side-left">
     <span class="vertical-label">A MEDIC'S MEMOIR</span>
   </div>
@@ -132,11 +212,8 @@
   <div class="wrap hero-wrap-editorial">
     <div class="hero-wrapper">
       
-      <!-- Soldier Cutout (Anchored & Integrated) -->
-      <img src="./img/grandfather.png" alt="Sgt. Edward G. Lindberg" class="grandfather-img" />
-      
-      <!-- Prominent Narrative & Title Composition -->
-      <div class="hero-narrative-container">
+     <div class="wrap1 book-showcase-container">
+     <div class="hero-narrative-container">
         <p class="hero-eyebrow fx" style="--d: 1.0s;">THE STORY OF A SOLDIER, A MEDIC &amp; HIS FAITH</p>
         
         <h1 class="shine cinematic-title">
@@ -152,11 +229,23 @@
           <a class="btn ghost" href="https://savingottobrunev2.sample-version.com/blogs/">Browse the Blog</a>
         </div>
       </div>
+      <!-- Book Image Pane (Comes first in HTML so it stacks on top in mobile via flex-direction) -->
+      <div class="book-image-pane">
+        <img
+          src="./img/BOOKCOVER.png"
+          alt="Book Cover"
+          class="book-showcase-img"
+        />
+      </div>
+
+      <!-- Book Text Pane -->
+     
+
+    </div>
 
     </div>
   </div>
 </section>
-
 
 
     <div class="ticker">

@@ -222,7 +222,7 @@ a:hover{color:var(--gold2);text-decoration:underline}
    ========================================================================== */
 
 /* Glassmorphism Styling for Hero Narrative Container */
-.hero-narrative-container {
+/* .hero-narrative-container {
   
   position: relative;
   z-index: 7;
@@ -230,23 +230,28 @@ a:hover{color:var(--gold2);text-decoration:underline}
   margin: 0 auto 1vh auto;
   padding: 30px 30px !important;
   
-  /* #1B1913 Glassmorphism Core Effect */
-  background: rgba(27, 25, 19, 0.65); /* #1B1913 color with transparency */
+  /* #1B1913 Glassmorphism Core Effect 
+  background: rgba(27, 25, 19, 0.65); /* #1B1913 color with transparency 
   backdrop-filter: blur(12px) saturate(140%);
   -webkit-backdrop-filter: blur(12px) saturate(140%);
   
-  /* Subtle Antique Gold / Glass Border & Shadow */
+  /* Subtle Antique Gold / Glass Border & Shadow 
   border: 1px solid rgba(197, 160, 89, 0.25);
   border-radius: 12px;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 
-              inset 0 1px 0 rgba(255, 255, 255, 0.1);
-}
+              inset 0 1px 0 rgba(255, 255, 255, 0.1); 
+}*/
+
 
 /* Mobile Screens ke liye Padding Adjustments */
 @media (max-width: 768px) {
   .hero-narrative-container {
     padding: 5px 10px;
     margin: 0 15px 1vh 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center !important;
   }
 }
 
@@ -501,6 +506,7 @@ a:hover{color:var(--gold2);text-decoration:underline}
   
   .book-showcase-img {
     max-width: 100% !important; /* Mobile ke liye proper compact size */
+    height: 300px !important;
     margin: 0 auto;
   }
 
@@ -873,11 +879,11 @@ header.cinematic-header .wrap {
   min-height: 90vh;
   min-height: 90svh;
   display: flex;
-  align-items: flex-end; /* Saari chezein bottom par laane ke liye */
+  align-items: flex-end;
   justify-content: center;
   overflow: hidden;
   background-color: #050508;
-  padding:0px;
+  padding: 0px;
 }
 
 /* Background Video Styling */
@@ -962,7 +968,7 @@ header.cinematic-header .wrap {
   opacity: 0.4;
 }
 
-/* Wrapper & Bottom Layout Fix */
+/* Wrapper & Layout */
 .hero-wrap-editorial {
   position: relative;
   z-index: 6;
@@ -971,19 +977,88 @@ header.cinematic-header .wrap {
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  padding-bottom: 0vh;
+  padding: 40px 20px;
 }
 
 .hero-wrapper {
   position: relative;
   width: 100%;
-  max-width: 1100px;
-  height: 75vh; /* Soldier aur content ko bottom area mein contain karne ke liye */
+  max-width: 1440px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
   text-align: center;
+}
+
+/* Flex Container for Desktop Side-by-Side */
+.book-showcase-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  width: 100%;
+}
+
+/* Book Narrative Content */
+
+/* Book Image Pane & Hover Effect */
+.book-image-pane {
+  perspective: 1000px; /* 3D effect depth */
+}
+.book-image-pane {
+  perspective: 1000px;
+  display: inline-block;
+  cursor: none;
+}
+
+/* .book-showcase-img {
+  width: 100% !important;
+  max-width: 380px !important;
+  height: auto !important;
+  max-height: 550px !important;
+  border-radius: 8px;
+  object-fit: cover;
+  display: block;
+  padding: 0px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  cursor: pointer;
+} */
+
+/* Book Hover Effect (Lifts up, tilts slightly, adds cinematic glow) */
+/* .book-showcase-img:hover {
+  transform: translateY(-12px) rotateY(6deg) scale(1.02);
+  box-shadow: 0 25px 50px rgba(212, 175, 55, 0.25), 
+              0 15px 30px rgba(0, 0, 0, 0.7);
+} */
+
+/* ==========================================
+   MOBILE & TABLET RESPONSIVE STYLES (< 992px)
+   ================================---------- */
+@media (max-width: 992px) {
+  /* Hide side labels on smaller screens to prevent overlapping */
+  .editorial-side-left, 
+  .editorial-side-right {
+    display: none;
+  }
+
+  /* Stack book on top, text on bottom */
+  .book-showcase-container {
+    flex-direction: column-reverse;
+    gap: 30px;
+    align-items: center;
+  }
+
+  .herobaner.cinematic-editorial-hero {
+    min-height: 100svh;
+    align-items: center;
+    padding: 60px 15px 40px 15px;
+  }
+
+  .hero-wrap-editorial {
+    padding: 0;
+  }
 }
 
 /* Grandfather Character Cutout - Bottom Anchored */
@@ -1018,7 +1093,10 @@ header.cinematic-header .wrap {
   position: relative;
   z-index: 7;
   max-width: 1090px;
-  margin: 0 auto;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
   padding: 0px;
   margin-bottom: 1vh;
 }
@@ -1035,6 +1113,7 @@ header.cinematic-header .wrap {
 
 .cinematic-title {
   margin: 0px;
+  text-align: left;
   font-size: 100px;
   line-height: 100px;
   text-shadow: 0 6px 25px rgba(0,0,0,0.9), 0 2px 8px rgba(0,0,0,0.85);
@@ -1089,6 +1168,7 @@ header.cinematic-header .wrap {
   .cinematic-title {
     font-size: 40px !important;
     line-height: 45px;
+    text-align: center;
   }
 }
 @media (max-width:435px) {
@@ -1456,3 +1536,269 @@ button.btn{border:0;cursor:pointer}
 footer{border-top:1px solid var(--line);background:#0e0d08;padding:40px 0;color:var(--muted);font-size:14px;text-align:center}
 footer .brand{display:block;margin-bottom:8px}
 footer em{color:var(--gold)}
+
+
+
+/* POPUP BACKGROUND */
+.popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    padding: 15px;
+}
+
+/* MAIN POPUP */
+.popup-content {
+    background-image: url("./img/herobg.png");
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 1100px;
+    min-height: 450px;
+    color: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+/* DARK OVERLAY */
+.popup-content::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    z-index: -1;
+}
+
+/* LEFT CONTENT */
+.left-side {
+    width: 55%;
+    padding: 45px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-width: 0;
+}
+
+.popup-content h1 {
+    font-size: 45px;
+    margin: 0 0 20px;
+    color: #f0d894;
+}
+
+.popup-content p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #ece4cf;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.release {
+    font-size: 18px;
+    margin-bottom: 25px;
+    color: white;
+    text-align: center;
+}
+
+.datei {
+    color: #f0d894;
+}
+
+/* COUNTDOWN */
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.time-box {
+    background: rgba(255,255,255,0.1);
+    padding: 15px 12px;
+    border-radius: 12px;
+    min-width: 75px;
+    text-align: center;
+}
+
+.time-box h2 {
+    font-size: 30px;
+    color: #f0d894;
+    margin: 0;
+}
+
+.time-box span {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #ddd;
+}
+
+/* RIGHT IMAGE */
+.popup-image {
+    width: 45%;
+    min-height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.popup-image img {
+    width: 100%;
+    height: 100%;
+    min-height: 450px;
+    object-fit: contain;
+    display: block;
+}
+
+/* CLOSE BUTTON */
+.close-popup {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    font-size: 32px;
+    color: #f0d894;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    line-height: 1;
+}
+
+.close-popup:hover {
+    color: white;
+}
+
+/* TABLET */
+@media (max-width: 900px) {
+    .popup-content {
+        max-width: 750px;
+        min-height: 380px;
+    }
+
+    .left-side {
+        padding: 30px 20px;
+    }
+
+    .popup-content h1 {
+        font-size: 34px;
+    }
+
+    .popup-image {
+        display: none;
+    }
+
+    .popup-image img {
+        min-height: 380px;
+    }
+
+    .time-box {
+        min-width: 65px;
+        padding: 12px 8px;
+    }
+
+    .time-box h2 {
+        font-size: 24px;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+
+    .popup {
+        padding: 12px;
+    }
+
+    .popup-content {
+        flex-direction: column;
+        width: 100%;
+        max-width: 420px;
+        max-height: 92vh;
+        min-height: auto;
+        overflow-y: auto;
+        border-radius: 15px;
+    }
+
+    /* IMAGE TOP */
+    .popup-image {
+        width: 100%;
+        height: 180px;
+        min-height: 180px;
+        flex-shrink: 0;
+    }
+
+    .popup-image img {
+        width: 100%;
+        height: 180px;
+        min-height: 180px;
+        object-fit: contain;
+    }
+
+    /* CONTENT BOTTOM */
+    .left-side {
+        width: 100%;
+        padding: 25px 15px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .popup-content h1 {
+        font-size: 30px;
+        margin-bottom: 12px;
+    }
+
+    .popup-content p {
+        font-size: 14px;
+        line-height: 1.6;
+        margin-bottom: 15px;
+    }
+
+    .release {
+        font-size: 15px;
+        margin-bottom: 18px;
+    }
+
+    /* MOBILE COUNTDOWN */
+    .countdown {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 6px;
+        width: 100%;
+    }
+
+    .time-box {
+        min-width: 0;
+        padding: 12px 3px;
+        border-radius: 8px;
+    }
+
+    .time-box h2 {
+        font-size: 21px;
+    }
+
+    .time-box span {
+        font-size: 8px;
+        letter-spacing: 0.5px;
+    }
+
+    .close-popup {
+        top: 8px;
+        right: 10px;
+        font-size: 28px;
+        background: rgba(0,0,0,0.5);
+        border-radius: 50%;
+        width: 35px;
+        height: 35px;
+    }
+}
